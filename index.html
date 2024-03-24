@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>U2Seg: Unsupervised Universal Image Segmentation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://people.eecs.berkeley.edu/~xdwang/projects/CutLER/">
+            CutLER
+          </a>
+          <a class="navbar-item" href="https://mhamilton.net/stego.html">
+            STEGO
+          </a>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Unsupervised Universal Image Segmentation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=AzlUrvUAAAAJ&hl=en">Dantong Niu*</a>,</span>
+            <span class="author-block">
+                <a href="https://people.eecs.berkeley.edu/~xdwang/">Xudong Wang*</a><sup></sup>,</span>
+            <span class="author-block">
+              <a href="https://xinyanghan.github.io/">Xinyang Han*</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://tonylian.com/">Long Lian</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://roeiherz.github.io/">Roei Herzig</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Berkeley AI Research, UC Berkeley</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2312.17243.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2312.17243"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/u2seg/U2Seg"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img style="width:950px" src="./static/images/teaser_img.jpg">
+      <h2 class="subtitle has-text-centered">
+        <p>We present <strong>U2Seg</strong>, a unified framework for <strong>U</strong>nsupervised <strong>U</strong>niversal image <strong>Seg</strong>mentation that consistently outperforms previous state-of-the-art methods designed for individual tasks: CutLER for unsupervised instance segmentation, STEGO for unsupervised semantic segmentation, and the naive combination of CutLER and STEGO for unsupervised panoptic segmentation. We visualize instance segmentation results with "semantic label" + confidence score and semantic predictions with "semantic label". Zoom in for the best view.</p>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Several unsupervised image segmentation approaches have been proposed which eliminate the need for dense manually-annotated segmentation masks; current models separately handle either semantic segmentation (e.g., STEGO) or class-agnostic instance segmentation (e.g., CutLER), but not both (i.e., panoptic segmentation).
+            We propose an Unsupervised Universal Segmentation model (U2Seg) adept at performing various image segmentation tasks---instance, semantic and panoptic---using a novel unified framework. U2Seg generates pseudo semantic labels for these segmentation tasks via leveraging self-supervised models followed by clustering; each cluster represents different semantic and/or instance membership of pixels.
+            We then self-train the model on these pseudo semantic labels, yielding substantial performance gains over specialized methods tailored to each task:
+            a <i>+2.6 AP<sup>box</sup></i> boost (vs. CutLER) in unsupervised instance segmentation on COCO and a <i>+7.0 PixelAcc</i> increase (vs. STEGO) in unsupervised semantic segmentation on COCOStuff. Moreover, our method sets up a new baseline for unsupervised panoptic segmentation, which has not been previously explored. U2Seg is also a strong pretrained model for few-shot segmentation, surpassing CutLER by <i>+5.0 AP<sup>mask</sup></i> when trained on a low-data regime, e.g., only 1% COCO labels.
+            We hope our simple yet effective method can inspire more research on unsupervised universal image segmentation.
+          </p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title">Framework</h2>
+        <h4 class="title is-4">Overview</h4>
+
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <td style="text-align:center;">
+              <img style="width:950px" src="./static/images/main_pipeline.jpg">
+          </td>
+            <h2 class="subtitle has-text-centered">
+              Overview of the training and inference pipeline for the proposed Unsupervised Universal Segmentation model (U2Seg) adept at performing various image segmentation tasks—instance, semantic and panoptic—using a novel unified framework.
+                Please check our <a href="https://arxiv.org/abs/2312.17243">paper</a> and <a href='https://github.com/u2seg/U2Seg' style="text-align:center">code</a> for more details. 
+            </h2>
+          </div>
+        </div>
+        <h4 class="title is-4">Semantic-Aware Instance Clustering</h4>
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <td style="text-align:center;">
+              <img style="width:950px" src="./static/images/main_pipeline_2.jpg">
+          </td>
+            <h2 class="subtitle has-text-centered">
+              Pipeline overview for generating masks and their semantically meaningful pseudo labels in semantic-aware instance segmentation. We first use MaskCut to generate class-agnostic instance masks, which are then grouped into semantically meaningful clusters. These pseudo semantic labels are used for training a semantic-aware instance segmentor.
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{niu2023unsupervised,
+      title={Unsupervised Universal Image Segmentation}, 
+      author={Dantong Niu and Xudong Wang and Xinyang Han and Long Lian and Roei Herzig and Trevor Darrell},
+      year={2023},
+      eprint={2312.17243},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/abs/2312.17243">
+        <i class="fas fa-file-pdf"></i>
+      </a>v
+      <a class="icon-link" href="https://github.com/u2seg/U2Seg" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Acknowledgement: Trevor Darrell, Dantong Niu and XuDong Wang were funded by DoD including DARPA LwLL and the Berkeley AI Research (BAIR) Commons. A portion of this website is built upon the codes provided by the <a href="https://nerfies.github.io/">nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
