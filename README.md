@@ -1,8 +1,8 @@
-# U2Seg
+# Sap3D
 
-This is the repository that contains source code for the [U2Seg website](https://u2seg.github.io).
+This is the repository that contains source code for the [Sap3D website](https://sap3d.github.io).
 
-If you find U2Seg useful for your work please cite:
+If you find Sap3D useful for your work please cite:
 ```
 @misc{niu2023unsupervised,
       title={Unsupervised Universal Image Segmentation}, 

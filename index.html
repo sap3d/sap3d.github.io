@@ -6,7 +6,7 @@
         content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>U2Seg: Unsupervised Universal Image Segmentation</title>
+  <title>The More You See in 2D, the More You Perceive in 3D</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -80,23 +80,20 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Unsupervised Universal Image Segmentation</h1>
+          <h1 class="title is-1 publication-title">The More You See in 2D, the More You Perceive in 3D</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=AzlUrvUAAAAJ&hl=en">Dantong Niu*</a>,</span>
+              <a href="https://github.com/XinyangHan">Xinyang Han*</a>,</span>
             <span class="author-block">
-                <a href="https://people.eecs.berkeley.edu/~xdwang/">Xudong Wang*</a><sup></sup>,</span>
+                <a href="https://scholar.google.com/citations?user=kvHYP9MAAAAJ&hl=en">Zelin Gao*</a><sup></sup>,</span>
             <span class="author-block">
-              <a href="https://xinyanghan.github.io/">Xinyang Han*</a>,
+              <a href="http://people.eecs.berkeley.edu/~kanazawa">Angjoo Kanazawa</a>,
             </span>
             <span class="author-block">
-              <a href="https://tonylian.com/">Long Lian</a>,
+              <a href="https://shubham-goel.github.io/">Shubham Goel**</a>,
             </span>
             <span class="author-block">
-              <a href="https://roeiherz.github.io/">Roei Herzig</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a>
+              <a href="https://yossigandelsman.github.io/">Yossi Gandelsman**</a>,
             </span>
           </div>
 
@@ -137,7 +134,7 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/u2seg/U2Seg"
+                <a href="https://github.com/sap3d/Sap3D"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -168,7 +165,7 @@
     <div class="hero-body">
       <img style="width:950px" src="./static/images/teaser_img.jpg">
       <h2 class="subtitle has-text-centered">
-        <p>We present <strong>U2Seg</strong>, a unified framework for <strong>U</strong>nsupervised <strong>U</strong>niversal image <strong>Seg</strong>mentation that consistently outperforms previous state-of-the-art methods designed for individual tasks: CutLER for unsupervised instance segmentation, STEGO for unsupervised semantic segmentation, and the naive combination of CutLER and STEGO for unsupervised panoptic segmentation. We visualize instance segmentation results with "semantic label" + confidence score and semantic predictions with "semantic label". Zoom in for the best view.</p>
+        <p><strong>3D from one or more unposed views.</strong> Our system reconstructs the 3D shape and texture of an object with a variable number of real input images. The first, second, and third rows show reconstructions from 1, 3, and 5 input images. The quality of 3D shape and texture improves with more views.</p>
       </h2>
     </div>
   </div>
@@ -182,11 +179,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Several unsupervised image segmentation approaches have been proposed which eliminate the need for dense manually-annotated segmentation masks; current models separately handle either semantic segmentation (e.g., STEGO) or class-agnostic instance segmentation (e.g., CutLER), but not both (i.e., panoptic segmentation).
-            We propose an Unsupervised Universal Segmentation model (U2Seg) adept at performing various image segmentation tasks---instance, semantic and panoptic---using a novel unified framework. U2Seg generates pseudo semantic labels for these segmentation tasks via leveraging self-supervised models followed by clustering; each cluster represents different semantic and/or instance membership of pixels.
-            We then self-train the model on these pseudo semantic labels, yielding substantial performance gains over specialized methods tailored to each task:
-            a <i>+2.6 AP<sup>box</sup></i> boost (vs. CutLER) in unsupervised instance segmentation on COCO and a <i>+7.0 PixelAcc</i> increase (vs. STEGO) in unsupervised semantic segmentation on COCOStuff. Moreover, our method sets up a new baseline for unsupervised panoptic segmentation, which has not been previously explored. U2Seg is also a strong pretrained model for few-shot segmentation, surpassing CutLER by <i>+5.0 AP<sup>mask</sup></i> when trained on a low-data regime, e.g., only 1% COCO labels.
-            We hope our simple yet effective method can inspire more research on unsupervised universal image segmentation.
+            Humans can infer 3D structure from 2D images of an object based on past experience and improve their 3D understanding as they see more images. Inspired by this behavior, we introduce SAP3D, a system for 3D reconstruction and novel view synthesis from an arbitrary number of unposed images. Given a few unposed images of an object, we adapt a pre-trained view-conditioned diffusion model together with the camera poses of the images via test-time fine-tuning. The adapted diffusion model and the obtained camera poses are then utilized as instance-specific priors for 3D reconstruction and novel view synthesis. We show that as the number of input images increases, the performance of our approach improves, bridging the gap between optimization-based prior-less 3D reconstruction methods and single-image-to-3D diffusion-based methods. We demonstrate our system on real images as well as standard synthetic benchmarks. Our ablation studies confirm that this adaption behavior is key for more accurate 3D understanding. 
           </p>
           </p>
         </div>
@@ -201,7 +194,6 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title">Framework</h2>
-        <h4 class="title is-4">Overview</h4>
 
         <div class="container is-max-desktop">
           <div class="hero-body">
@@ -209,19 +201,7 @@
               <img style="width:950px" src="./static/images/main_pipeline.jpg">
           </td>
             <h2 class="subtitle has-text-centered">
-              Overview of the training and inference pipeline for the proposed Unsupervised Universal Segmentation model (U2Seg) adept at performing various image segmentation tasks—instance, semantic and panoptic—using a novel unified framework.
-                Please check our <a href="https://arxiv.org/abs/2312.17243">paper</a> and <a href='https://github.com/u2seg/U2Seg' style="text-align:center">code</a> for more details. 
-            </h2>
-          </div>
-        </div>
-        <h4 class="title is-4">Semantic-Aware Instance Clustering</h4>
-        <div class="container is-max-desktop">
-          <div class="hero-body">
-            <td style="text-align:center;">
-              <img style="width:950px" src="./static/images/main_pipeline_2.jpg">
-          </td>
-            <h2 class="subtitle has-text-centered">
-              Pipeline overview for generating masks and their semantically meaningful pseudo labels in semantic-aware instance segmentation. We first use MaskCut to generate class-agnostic instance masks, which are then grouped into semantically meaningful clusters. These pseudo semantic labels are used for training a semantic-aware instance segmentor.
+              <strong>Overview of SAP3D.</strong> We first compute coarse relative camera poses using an off-the-shelf model. We fine-tune a view-conditioned 2D diffusion model on the input images and simultaneously refine the camera poses via optimization. The resulting instance-specific diffusion model and camera poses enable 3D reconstruction and novel view synthesis from <em>an arbitrary number of input images</em>.
             </h2>
           </div>
         </div>
@@ -233,14 +213,7 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{niu2023unsupervised,
-      title={Unsupervised Universal Image Segmentation}, 
-      author={Dantong Niu and Xudong Wang and Xinyang Han and Long Lian and Roei Herzig and Trevor Darrell},
-      year={2023},
-      eprint={2312.17243},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}</code></pre>
+    <pre><code></code></pre>
   </div>
 </section>
 
@@ -252,7 +225,7 @@
          href="https://arxiv.org/abs/2312.17243">
         <i class="fas fa-file-pdf"></i>
       </a>v
-      <a class="icon-link" href="https://github.com/u2seg/U2Seg" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/sap3d/Sap3D" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
