@@ -1,0 +1,1430 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>The More You See in 2D, the More You Perceive in 3D</title>
+    <link href="resources/css/style.css" rel="stylesheet" type="text/css" />
+    <script>
+        function play_vid(tag) {
+            vid = document.getElementById(tag)
+            if (vid.paused)
+                vid.play();
+            else
+                vid.pause();
+        }
+        function play_all() {
+            vids = document.getElementsByTagName('video')
+            play = vids[0].paused
+            for (i = 0; i < vids.length; i++) {
+                if (play) {
+                    vids[i].play();
+                }
+                else
+                    vids[i].pause();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button class="bottom" onclick="play_all();">Play/Pause All</button>
+    <div class="container">
+        <h1 align="center">The More You See in 2D, the More You Perceive in 3D</h1>
+        <h2 align="center">Supplementary Material</h2>
+        <p align="center">&nbsp;</p>
+        <ul>
+            <!-- TODO: #hashtags -->
+            <li><a href="#msmi"><b>More Sight - More Insight (Section 4.2)</b></a></li>
+            <ul><a href="#msmi3d">1. 3D reconstruction</a></ul>
+            <ul><a href="#msmi2d">2. Novel View Synthesis (with and without finetuning)</a></ul>
+            <li><a href="#ablation"><b>System Verification - 3D reconstruction (Section 4.2)</b></a></li>
+
+        </ul>
+        <p align="left">&nbsp;</p>
+        <hr>
+        <h2 align="center">
+            <font color="red">Click
+                <button onclick="play_all();">Play/Pause All</button>
+                on the bottom-right to play and pause all the videos.
+            </font>
+        </h2>
+        <hr>
+        <a name="msmi"></a>
+        <h3 align="left">More Sight - More Insight</h3>
+        <hr>
+        <a name="msmi3d"></a>
+        <h3 align="left">1. 3D Reconsturction</h3>
+        <p align="left">We present the 3D reconstructions for a varying number (1 to 5) of input images to SAP3D. </p>
+        <p align="left">As shown, with more input images, the 3D reconstruction of SAP3D improves.</p>
+        <hr>
+        <table align="center" width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img class="height180" src="resources/GSO/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom/images/000.jpg" width="90%"></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom/images/001.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom/images/002.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom/images/003.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom/images/004.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Results:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_zero123_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_zero123/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_zero123_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_zero123_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_zero123/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_zero123_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours/Marvel_Avengers_Titan_Hero_Series_Doctor_Doom_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <hr>
+        <table align="center" width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img class="height180" src="resources/GSO/MINI_ROLLER/images/000.jpg" width="90%"></td>
+                    <td align="center"><img class="height180" src="resources/GSO/MINI_ROLLER/images/001.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/MINI_ROLLER/images/002.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/MINI_ROLLER/images/003.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/MINI_ROLLER/images/004.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Results:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_MINI_ROLLER_zero123_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/MINI_ROLLER_zero123/MINI_ROLLER_zero123_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_MINI_ROLLER_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/MINI_ROLLER_ours/MINI_ROLLER_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_MINI_ROLLER_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/MINI_ROLLER_ours/MINI_ROLLER_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_MINI_ROLLER_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/MINI_ROLLER_ours/MINI_ROLLER_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_MINI_ROLLER_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/MINI_ROLLER_ours/MINI_ROLLER_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_MINI_ROLLER_zero123_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/MINI_ROLLER_zero123/MINI_ROLLER_zero123_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_MINI_ROLLER_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/MINI_ROLLER_ours/MINI_ROLLER_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_MINI_ROLLER_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/MINI_ROLLER_ours/MINI_ROLLER_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_MINI_ROLLER_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/MINI_ROLLER_ours/MINI_ROLLER_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_MINI_ROLLER_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/MINI_ROLLER_ours/MINI_ROLLER_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        <table align="center" width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img class="height180" src="resources/GSO/Schleich_African_Black_Rhino/images/000.jpg" width="90%"></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Schleich_African_Black_Rhino/images/001.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Schleich_African_Black_Rhino/images/002.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Schleich_African_Black_Rhino/images/003.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Schleich_African_Black_Rhino/images/004.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Results:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Schleich_African_Black_Rhino_zero123_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Schleich_African_Black_Rhino_zero123/Schleich_African_Black_Rhino_zero123_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Schleich_African_Black_Rhino_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Schleich_African_Black_Rhino_ours/Schleich_African_Black_Rhino_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Schleich_African_Black_Rhino_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Schleich_African_Black_Rhino_ours/Schleich_African_Black_Rhino_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Schleich_African_Black_Rhino_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Schleich_African_Black_Rhino_ours/Schleich_African_Black_Rhino_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Schleich_African_Black_Rhino_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Schleich_African_Black_Rhino_ours/Schleich_African_Black_Rhino_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Schleich_African_Black_Rhino_zero123_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Schleich_African_Black_Rhino_zero123/Schleich_African_Black_Rhino_zero123_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Schleich_African_Black_Rhino_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Schleich_African_Black_Rhino_ours/Schleich_African_Black_Rhino_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Schleich_African_Black_Rhino_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Schleich_African_Black_Rhino_ours/Schleich_African_Black_Rhino_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Schleich_African_Black_Rhino_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Schleich_African_Black_Rhino_ours/Schleich_African_Black_Rhino_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Schleich_African_Black_Rhino_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Schleich_African_Black_Rhino_ours/Schleich_African_Black_Rhino_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        <table align="center" width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img class="height180" src="resources/GSO/Sperry_TopSider_tNB9t6YBUf3/images/000.jpg" width="90%"></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Sperry_TopSider_tNB9t6YBUf3/images/001.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Sperry_TopSider_tNB9t6YBUf3/images/002.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Sperry_TopSider_tNB9t6YBUf3/images/003.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Sperry_TopSider_tNB9t6YBUf3/images/004.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Results:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Sperry_TopSider_tNB9t6YBUf3_zero123_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Sperry_TopSider_tNB9t6YBUf3_zero123/Sperry_TopSider_tNB9t6YBUf3_zero123_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Sperry_TopSider_tNB9t6YBUf3_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Sperry_TopSider_tNB9t6YBUf3_ours/Sperry_TopSider_tNB9t6YBUf3_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Sperry_TopSider_tNB9t6YBUf3_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Sperry_TopSider_tNB9t6YBUf3_ours/Sperry_TopSider_tNB9t6YBUf3_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Sperry_TopSider_tNB9t6YBUf3_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Sperry_TopSider_tNB9t6YBUf3_ours/Sperry_TopSider_tNB9t6YBUf3_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Sperry_TopSider_tNB9t6YBUf3_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Sperry_TopSider_tNB9t6YBUf3_ours/Sperry_TopSider_tNB9t6YBUf3_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Sperry_TopSider_tNB9t6YBUf3_zero123_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Sperry_TopSider_tNB9t6YBUf3_zero123/Sperry_TopSider_tNB9t6YBUf3_zero123_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Sperry_TopSider_tNB9t6YBUf3_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Sperry_TopSider_tNB9t6YBUf3_ours/Sperry_TopSider_tNB9t6YBUf3_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Sperry_TopSider_tNB9t6YBUf3_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Sperry_TopSider_tNB9t6YBUf3_ours/Sperry_TopSider_tNB9t6YBUf3_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Sperry_TopSider_tNB9t6YBUf3_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Sperry_TopSider_tNB9t6YBUf3_ours/Sperry_TopSider_tNB9t6YBUf3_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Sperry_TopSider_tNB9t6YBUf3_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Sperry_TopSider_tNB9t6YBUf3_ours/Sperry_TopSider_tNB9t6YBUf3_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+        
+        <hr>
+        <table align="center" width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img class="height180" src="resources/GSO/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure/images/000.jpg" width="90%"></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure/images/001.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure/images/002.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure/images/003.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure/images/004.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Results:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_zero123_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_zero123/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_zero123_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_zero123_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_zero123/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_zero123_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours/Teenage_Mutant_Ninja_Turtles_Rahzar_Action_Figure_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table align="center" width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img class="height180" src="resources/GSO/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj/images/000.jpg" width="90%"></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj/images/001.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj/images/002.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj/images/003.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj/images/004.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Results:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_zero123_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_zero123/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_zero123_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_zero123_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_zero123/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_zero123_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours/Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        <table align="center" width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img class="height180" src="resources/GSO/Vtech_Roll_Learn_Turtle/images/000.jpg" width="90%"></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Vtech_Roll_Learn_Turtle/images/001.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Vtech_Roll_Learn_Turtle/images/002.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Vtech_Roll_Learn_Turtle/images/003.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Vtech_Roll_Learn_Turtle/images/004.jpg" width="90%"><span
+                            class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Results:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Vtech_Roll_Learn_Turtle_zero123_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Vtech_Roll_Learn_Turtle_zero123/Vtech_Roll_Learn_Turtle_zero123_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Vtech_Roll_Learn_Turtle_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Vtech_Roll_Learn_Turtle_ours/Vtech_Roll_Learn_Turtle_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Vtech_Roll_Learn_Turtle_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Vtech_Roll_Learn_Turtle_ours/Vtech_Roll_Learn_Turtle_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Vtech_Roll_Learn_Turtle_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Vtech_Roll_Learn_Turtle_ours/Vtech_Roll_Learn_Turtle_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Vtech_Roll_Learn_Turtle_ours_rgb_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Vtech_Roll_Learn_Turtle_ours/Vtech_Roll_Learn_Turtle_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="3D_REC_Ours_1_Img_Vtech_Roll_Learn_Turtle_zero123_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_1_Img/Vtech_Roll_Learn_Turtle_zero123/Vtech_Roll_Learn_Turtle_zero123_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Vtech_Roll_Learn_Turtle_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Vtech_Roll_Learn_Turtle_ours/Vtech_Roll_Learn_Turtle_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_2_Img_Vtech_Roll_Learn_Turtle_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_2_Img/Vtech_Roll_Learn_Turtle_ours/Vtech_Roll_Learn_Turtle_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_3_Img_Vtech_Roll_Learn_Turtle_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_3_Img/Vtech_Roll_Learn_Turtle_ours/Vtech_Roll_Learn_Turtle_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="3D_REC_Ours_4_Img_Vtech_Roll_Learn_Turtle_ours_normal_pred" class="pairs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/3D/REC_Ours_4_Img/Vtech_Roll_Learn_Turtle_ours/Vtech_Roll_Learn_Turtle_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <a name="msmi2d"></a>
+        <h3 align="left">2. Novel View Synthesis</h3>
+        <p align="left">We present generated novel views for a varying number (1 to 5) of input images to SAP3D. </p>
+        <p align="left">For each input set, we provide the novel views before and after the fine-tuning stage. We use
+            stochastic conditioning in all the experiments.</p>
+        <p align="left">Similarily to 3D reconstruction, with more input images, the novel view synthesis of SAP3D
+            improves. Moreover, the adapation stage improves the consistency of the generations.</p>
+
+
+        <hr>
+        <table align="center" width="100%" border="0" class="equal">
+            <tbody class="equal">
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img
+                            src="resources/GSO/Crosley_Alarm_Clock_Vintage_Metal/images/000.jpg" width="90%">
+                    </td>
+                    <td align="center"><img
+                            src="resources/GSO/Crosley_Alarm_Clock_Vintage_Metal/images/001.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img
+                            src="resources/GSO/Crosley_Alarm_Clock_Vintage_Metal/images/002.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img
+                            src="resources/GSO/Crosley_Alarm_Clock_Vintage_Metal/images/003.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img
+                            src="resources/GSO/Crosley_Alarm_Clock_Vintage_Metal/images/004.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D without adaptation:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="2D_Ours_NVS_Crosley_Alarm_Clock_Vintage_Metal_view_1_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Crosley_Alarm_Clock_Vintage_Metal_view_1_supp/preds/Crosley_Alarm_Clock_Vintage_Metal_view_1_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Crosley_Alarm_Clock_Vintage_Metal_view_2_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/Crosley_Alarm_Clock_Vintage_Metal_view_2_supp/preds/Crosley_Alarm_Clock_Vintage_Metal_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Crosley_Alarm_Clock_Vintage_Metal_view_3_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/Crosley_Alarm_Clock_Vintage_Metal_view_3_supp/preds/Crosley_Alarm_Clock_Vintage_Metal_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Crosley_Alarm_Clock_Vintage_Metal_view_4_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/Crosley_Alarm_Clock_Vintage_Metal_view_4_supp/preds/Crosley_Alarm_Clock_Vintage_Metal_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Crosley_Alarm_Clock_Vintage_Metal_view_5_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/Crosley_Alarm_Clock_Vintage_Metal_view_5_supp/preds/Crosley_Alarm_Clock_Vintage_Metal_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="center"><video id="2D_Ours_NVS_Crosley_Alarm_Clock_Vintage_Metal_view_2_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Crosley_Alarm_Clock_Vintage_Metal_view_2_supp/preds/Crosley_Alarm_Clock_Vintage_Metal_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_Crosley_Alarm_Clock_Vintage_Metal_view_3_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Crosley_Alarm_Clock_Vintage_Metal_view_3_supp/preds/Crosley_Alarm_Clock_Vintage_Metal_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_Crosley_Alarm_Clock_Vintage_Metal_view_4_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Crosley_Alarm_Clock_Vintage_Metal_view_4_supp/preds/Crosley_Alarm_Clock_Vintage_Metal_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_Crosley_Alarm_Clock_Vintage_Metal_view_5_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Crosley_Alarm_Clock_Vintage_Metal_view_5_supp/preds/Crosley_Alarm_Clock_Vintage_Metal_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table align="center" width="100%" border="0" class="equal">
+            <tbody class="equal">
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img src="resources/GSO/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure/images/000.jpg" width="90%"></td>
+                    <td align="center"><img src="resources/GSO/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure/images/001.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img src="resources/GSO/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure/images/002.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img src="resources/GSO/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure/images/003.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img src="resources/GSO/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure/images/004.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D without adaptation:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="2D_Ours_NVS_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_1_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_1_supp/preds/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_1_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_2_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/2D/Zero123_NVS/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_2_supp/preds/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_3_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/2D/Zero123_NVS/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_3_supp/preds/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_4_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/2D/Zero123_NVS/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_4_supp/preds/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_5_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source src="resources/2D/Zero123_NVS/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_5_supp/preds/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="center"><video id="2D_Ours_NVS_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_2_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_2_supp/preds/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_3_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_3_supp/preds/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_4_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_4_supp/preds/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_5_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_5_supp/preds/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table align="center" width="100%" border="0" class="equal">
+            <tbody class="equal">
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img src="resources/GSO/Imaginext_Castle_Ogre/images/000.jpg"
+                            width="90%"></td>
+                    <td align="center"><img src="resources/GSO/Imaginext_Castle_Ogre/images/001.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img src="resources/GSO/Imaginext_Castle_Ogre/images/002.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img src="resources/GSO/Imaginext_Castle_Ogre/images/003.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img src="resources/GSO/Imaginext_Castle_Ogre/images/004.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D without adaptation:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="2D_Ours_NVS_Imaginext_Castle_Ogre_view_1_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Imaginext_Castle_Ogre_view_1_supp/preds/Imaginext_Castle_Ogre_view_1_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Imaginext_Castle_Ogre_view_2_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/Imaginext_Castle_Ogre_view_2_supp/preds/Imaginext_Castle_Ogre_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Imaginext_Castle_Ogre_view_3_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/Imaginext_Castle_Ogre_view_3_supp/preds/Imaginext_Castle_Ogre_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Imaginext_Castle_Ogre_view_4_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/Imaginext_Castle_Ogre_view_4_supp/preds/Imaginext_Castle_Ogre_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_Imaginext_Castle_Ogre_view_5_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/Imaginext_Castle_Ogre_view_5_supp/preds/Imaginext_Castle_Ogre_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="center"><video id="2D_Ours_NVS_Imaginext_Castle_Ogre_view_2_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Imaginext_Castle_Ogre_view_2_supp/preds/Imaginext_Castle_Ogre_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_Imaginext_Castle_Ogre_view_3_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Imaginext_Castle_Ogre_view_3_supp/preds/Imaginext_Castle_Ogre_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_Imaginext_Castle_Ogre_view_4_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Imaginext_Castle_Ogre_view_4_supp/preds/Imaginext_Castle_Ogre_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_Imaginext_Castle_Ogre_view_5_sc" class="nvs"
+                            autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/Imaginext_Castle_Ogre_view_5_supp/preds/Imaginext_Castle_Ogre_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table align="center" width="100%" border="0" class="equal">
+            <tbody class="equal">
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img src="resources/GSO/CHICKEN_RACER/images/000.jpg" width="90%"></td>
+                    <td align="center"><img src="resources/GSO/CHICKEN_RACER/images/001.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img src="resources/GSO/CHICKEN_RACER/images/002.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img src="resources/GSO/CHICKEN_RACER/images/003.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img src="resources/GSO/CHICKEN_RACER/images/004.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D without adaptation:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video id="2D_Ours_NVS_CHICKEN_RACER_view_1_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/CHICKEN_RACER_view_1_supp/preds/CHICKEN_RACER_view_1_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_CHICKEN_RACER_view_2_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Zero123_NVS/CHICKEN_RACER_view_2_supp/preds/CHICKEN_RACER_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_CHICKEN_RACER_view_3_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Zero123_NVS/CHICKEN_RACER_view_3_supp/preds/CHICKEN_RACER_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_CHICKEN_RACER_view_4_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Zero123_NVS/CHICKEN_RACER_view_4_supp/preds/CHICKEN_RACER_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Zero123_NVS_CHICKEN_RACER_view_5_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Zero123_NVS/CHICKEN_RACER_view_5_supp/preds/CHICKEN_RACER_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="center"><video id="2D_Ours_NVS_CHICKEN_RACER_view_2_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/CHICKEN_RACER_view_2_supp/preds/CHICKEN_RACER_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_CHICKEN_RACER_view_3_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/CHICKEN_RACER_view_3_supp/preds/CHICKEN_RACER_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_CHICKEN_RACER_view_4_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/CHICKEN_RACER_view_4_supp/preds/CHICKEN_RACER_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video id="2D_Ours_NVS_CHICKEN_RACER_view_5_sc" class="nvs" autoplay="autoplay"
+                            loop="loop">
+                            <source src="resources/2D/Ours_NVS/CHICKEN_RACER_view_5_supp/preds/CHICKEN_RACER_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table align="center" width="100%" border="0" class="equal">
+            <tbody class="equal">
+                <tr>
+                    <td align="center">
+                        <p>One input (Zere-1-to-3)</p>
+                    </td>
+                    <td align="center">
+                        <p>Two inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Three inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Four inputs</p>
+                    </td>
+                    <td align="center">
+                        <p>Five inputs</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><img
+                            src="resources/GSO/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece/images/000.jpg"
+                            width="90%"></td>
+                    <td align="center"><img
+                            src="resources/GSO/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece/images/001.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img
+                            src="resources/GSO/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece/images/002.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img
+                            src="resources/GSO/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece/images/003.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                    <td align="center"><img
+                            src="resources/GSO/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece/images/004.jpg"
+                            width="90%"><br><span class="plus">+</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D without adaptation:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video
+                            id="2D_Ours_NVS_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_1_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_1_supp/preds/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_1_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="2D_Zero123_NVS_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_2_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_2_supp/preds/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="2D_Zero123_NVS_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_3_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_3_supp/preds/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="2D_Zero123_NVS_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_4_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_4_supp/preds/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="2D_Zero123_NVS_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_5_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Zero123_NVS/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_5_supp/preds/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>SAP3D:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="center"><video
+                            id="2D_Ours_NVS_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_2_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_2_supp/preds/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_2_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="2D_Ours_NVS_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_3_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_3_supp/preds/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_3_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="2D_Ours_NVS_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_4_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_4_supp/preds/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_4_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="2D_Ours_NVS_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_5_sc"
+                            class="nvs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/2D/Ours_NVS/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_5_supp/preds/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_view_5_sc.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <a name="ablation"></a>
+        <h3 align="left">System Verification on 3D Reconstruction (Section 4.3)</h3>
+        <p>We evaluate the effects of:</p>
+        <p>1. Initial camera pose estimation: RelPose++ compared to our scaled version - "SAP3D without adaption"
+        <p>2. Fine-tuning stage: SAP3D without adaption compared to SAP3D. </p>
+        <p>We compare performmance of 3D reconstruction and novel view synthesis, when 3 input images are provided.</p>
+        <hr>
+
+        <table align="center" width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td align="center">Input images:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="center"><img
+                            class="height180" src="resources/GSO/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece/images/000.jpg"
+                            width="90%"></td>
+                    <td align="center"><img
+                            class="height180" src="resources/GSO/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece/images/001.jpg"
+                            width="90%"></td>
+                    <td align="center"><img
+                            class="height180" src="resources/GSO/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece/images/002.jpg"
+                            width="90%"></td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <p>RelPose++</p>
+                    </td>
+                    <td align="center">
+                        <p>SAP3D without adapation</p>
+                    </td>
+                    <td align="center">
+                        <p>SAP3D</p>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video
+                            id="3D_Rec_Ori_RP_3_Img_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_rgb_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/Rec_Ori_RP_3_Img/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="3D_Rec_w_o_Adapt_3_Img_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_rgb_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/Rec_w_o_Adapt_3_Img/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="3D_REC_Ours_3_Img_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_rgb_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_3_Img/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td align="center"><video
+                            id="3D_Rec_Ori_RP_3_Img_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/Rec_Ori_RP_3_Img/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="3D_Rec_w_o_Adapt_3_Img_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/Rec_w_o_Adapt_3_Img/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="3D_REC_Ours_3_Img_JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_3_Img/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours/JA_Henckels_International_Premio_Cutlery_Block_Set_14Piece_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table align="center" width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td align="center">Input images:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="center"><img class="height180" src="resources/GSO/Circo_Fish_Toothbrush_Holder_14995988/images/000.jpg"
+                            width="90%"></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Circo_Fish_Toothbrush_Holder_14995988/images/001.jpg"
+                            width="90%"></td>
+                    <td align="center"><img class="height180" src="resources/GSO/Circo_Fish_Toothbrush_Holder_14995988/images/002.jpg"
+                            width="90%"></td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <p>RelPose++</p>
+                    </td>
+                    <td align="center">
+                        <p>SAP3D without adapation</p>
+                    </td>
+                    <td align="center">
+                        <p>SAP3D</p>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><video
+                            id="3D_Rec_Ori_RP_3_Img_Circo_Fish_Toothbrush_Holder_14995988_ours_rgb_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/Rec_Ori_RP_3_Img/Circo_Fish_Toothbrush_Holder_14995988_ours/Circo_Fish_Toothbrush_Holder_14995988_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="3D_Rec_w_o_Adapt_3_Img_Circo_Fish_Toothbrush_Holder_14995988_ours_rgb_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/Rec_w_o_Adapt_3_Img/Circo_Fish_Toothbrush_Holder_14995988_ours/Circo_Fish_Toothbrush_Holder_14995988_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="3D_REC_Ours_3_Img_Circo_Fish_Toothbrush_Holder_14995988_ours_rgb_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_3_Img/Circo_Fish_Toothbrush_Holder_14995988_ours/Circo_Fish_Toothbrush_Holder_14995988_ours_rgb_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                <tr>
+                    <td align="center"><video
+                            id="3D_Rec_Ori_RP_3_Img_Circo_Fish_Toothbrush_Holder_14995988_ours_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/Rec_Ori_RP_3_Img/Circo_Fish_Toothbrush_Holder_14995988_ours/Circo_Fish_Toothbrush_Holder_14995988_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="3D_Rec_w_o_Adapt_3_Img_Circo_Fish_Toothbrush_Holder_14995988_ours_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/Rec_w_o_Adapt_3_Img/Circo_Fish_Toothbrush_Holder_14995988_ours/Circo_Fish_Toothbrush_Holder_14995988_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                    <td align="center"><video
+                            id="3D_REC_Ours_3_Img_Circo_Fish_Toothbrush_Holder_14995988_ours_normal_pred"
+                            class="pairs" autoplay="autoplay" loop="loop">
+                            <source
+                                src="resources/3D/REC_Ours_3_Img/Circo_Fish_Toothbrush_Holder_14995988_ours/Circo_Fish_Toothbrush_Holder_14995988_ours_normal_pred.mp4"
+                                type="video/mp4" />Your browser does not support the video tag.
+                        </video></td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
