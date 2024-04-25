@@ -4,11 +4,11 @@ This is the repository that contains source code for the [Sap3D website](https:/
 
 If you find Sap3D useful for your work please cite:
 ```
-@misc{niu2023unsupervised,
-      title={Unsupervised Universal Image Segmentation}, 
-      author={Dantong Niu and Xudong Wang and Xinyang Han and Long Lian and Roei Herzig and Trevor Darrell},
-      year={2023},
-      eprint={2312.17243},
+@misc{sap3d,
+      title={The More You See in 2D, the More You Perceive in 3D}, 
+      author={Xinyang Han and Zelin Gao and Angjoo Kanazawa and Shubham Goel and Yossi Gandelsman},
+      year={2024},
+      eprint={2404.03652},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
